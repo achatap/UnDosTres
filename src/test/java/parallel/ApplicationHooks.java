@@ -2,6 +2,7 @@ package parallel;
 
 import java.util.Properties;
 
+import com.qa.util.Constants;
 import io.cucumber.java.AfterStep;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -29,7 +30,7 @@ public class ApplicationHooks {
 
     @Before(order = 1)
     public void launchBrowser() {
-        String browserName = prop.getProperty("browser");
+        String browserName = Constants.browser;
         driverFactory = new DriverFactory();
         driver = driverFactory.init_driver(browserName);
 

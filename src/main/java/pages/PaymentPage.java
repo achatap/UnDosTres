@@ -89,7 +89,9 @@ public class PaymentPage {
     }
 
     public void enterEmailIdAndPassword(String email, String password) {
+        WaitUtility.waitForConditions(driver,enterEmailIdOnPopUp);
         enterEmailIdOnPopUp.sendKeys(email);
+        WaitUtility.waitForConditions(driver,enterPassword);
         enterPassword.sendKeys(password);
     }
 
