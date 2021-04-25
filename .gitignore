@@ -57,3 +57,16 @@ local.properties
 ## OS X
 ##############################
 .DS_Store
+/test-output-thread/chosen.jquery.min.js
+/test-output-thread/chosen.min.css
+/test-output-thread/chosen.override.css
+/test-output-thread/chosen-sprite.png
+/test output/PdfReport/ExtentPdf.pdf
+/test-output-thread/formatter.js
+/test-output-thread/index.html
+/test-output-thread/jquery-3.5.1.min.js
+/test-output-thread/report.css
+/test-output-thread/report.js
+/test-output-thread/vis.min.css
+/test-output-thread/vis.min.js
+/test-output-thread/vis.override.css
