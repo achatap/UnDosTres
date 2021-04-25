@@ -102,6 +102,9 @@ public class PaymentPage {
 
     public void clickOnLoginButton() {
         WaitUtility.waitForConditions(driver,loginButton);
+        while (!loginButton.isEnabled()){
+            System.out.println("Login button is not enabled");
+        }
         loginButton.click();
     }
 

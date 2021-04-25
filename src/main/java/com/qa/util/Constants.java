@@ -11,6 +11,6 @@ public interface Constants {
         String FIREFOX = "firefox";
         String IE = "ie";
         String SAFARI = "safari";
-        String BROWSERDEFAULTVALUE = CHROME;
+        String BROWSERDEFAULTVALUE = FIREFOX;
     }
 }
