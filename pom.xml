@@ -15,7 +15,6 @@
         <junit.version>4.13.1</junit.version>
         <cucumber.version>6.9.0</cucumber.version>
         <maven.compiler.version>3.8.1</maven.compiler.version>
-        <browser>chrome</browser>
         <maven.surefire.version>2.22.2</maven.surefire.version>
 
     </properties>
@@ -86,6 +85,14 @@
 <!--        </dependency>-->
 
 
+        <!-- https://mvnrepository.com/artifact/net.masterthought/cucumber-reporting -->
+<!--        <dependency>-->
+<!--            <groupId>net.masterthought</groupId>-->
+<!--            <artifactId>cucumber-reporting</artifactId>-->
+<!--            <version>5.5.2</version>-->
+<!--        </dependency>-->
+
+
     </dependencies>
 
     <build>
@@ -128,6 +135,30 @@
             <!--				<forkCount>2</forkCount> <reuseForks>true</reuseForks> <reportsDirectory>${project.build.directory}/failsafe-reports_${surefire.forkNumber}</reportsDirectory> -->
             <!--				</configuration> </execution> </executions> </plugin>-->
 
+
+            <plugin>
+                <groupId>net.masterthought</groupId>
+                <artifactId>maven-cucumber-reporting</artifactId>
+                <version>5.3.0</version>
+                <executions>
+                    <execution>
+                        <id>execution</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                        <configuration>
+                            <projectName>UnDosTres</projectName>
+                            <skip>false</skip>
+                            <outputDirectory>reports/html-reports</outputDirectory>
+                            <inputDirectory>target/cucumber-reports</inputDirectory>
+                            <jsonFiles>
+                                <param>**/*.json</param>
+                            </jsonFiles>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
 
         </plugins>
     </build>
