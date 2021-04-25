@@ -40,4 +40,41 @@ public class UnDosTresSteps {
     public void verifyIfTheUserAbleToReachToTheNextScreenPaymentScreenOrNot() {
         Assert.assertTrue(paymentPage.checkForOrderSummary());
     }
+
+    @And("On payment screen click on tarjeta")
+    public void onPaymentScreenClickOnTarjeta() {
+        paymentPage.clickOnTarjeta();
+
+        paymentPage.clickOnUsarNuevaTarjeta();
+    }
+
+    @And("enter the following details under card name:Test ,Card number:{string} ,month={string},date={string},cvv={string}")
+    public void enterTheFollowingDetailsUnderCardNameTestCardNumberMonthDateCvv(String cardNumber, String month, String year, String cvv) {
+        paymentPage.enterCardDetails(cardNumber,month,year,cvv);
+
+    }
+
+    @And("under correo electronico field give email id as {string}")
+    public void underCorreoElectronicoFieldGiveEmailIdAs(String email) {
+        paymentPage.enterEmail(email);
+    }
+
+    @And("Click on Pagar con Tarjeta to do the recharge")
+    public void clickOnPagarConTarjetaToDoTheRecharge() {
+        paymentPage.clickOnPagarConTarjeta();
+
+    }
+
+    @And("on popup Enter the following email {string}  and password {string}")
+    public void onPopupEnterTheFollowingEmailAndPassword(String email, String password) {
+        paymentPage.enterEmailIdAndPassword(email,password);
+        paymentPage.clickOnCapcha();
+        paymentPage.clickOnLoginButton();
+    }
+
+    @And("Verify if the user gets a success message and recharge gets successful")
+    public void verifyIfTheUserGetsASuccessMessageAndRechargeGetsSuccessful() {
+
+        Assert.assertTrue(paymentPage.checkSiteContainsSuccess());
+    }
 }
