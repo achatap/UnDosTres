@@ -2,6 +2,7 @@ package parallel;
 
 import java.util.Properties;
 
+import io.cucumber.java.AfterStep;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -39,15 +40,14 @@ public class ApplicationHooks {
         driver.quit();
     }
 
-    @After(order = 1)
+    @AfterStep(order = 1)
     public void tearDown(Scenario scenario) {
-        if (scenario.isFailed()) {
-            // take screenshot:
+
+            // take screenshot after every step:
             String screenshotName = scenario.getName().replaceAll(" ", "_");
             byte[] sourcePath = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
             scenario.attach(sourcePath, "image/png", screenshotName);
 
-        }
     }
 
 }

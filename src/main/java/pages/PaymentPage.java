@@ -94,6 +94,7 @@ public class PaymentPage {
     }
 
     public void clickOnCapcha(){
+        WaitUtility.waitForConditions(driver,capcha);
         capcha.click();
     }
 
